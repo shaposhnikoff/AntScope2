@@ -23,7 +23,10 @@ enum {
     BLE_PING_CMD = (quint8)0x5A,
     BLE_CANCEL_CMD = (quint8)0x69,
     BLE_FULLINFO_CMD = (quint8)0x9B,
-    BLE_SCREEN_PAL_CMD = (quint8)0xDA
+    BLE_SCREEN_PAL_CMD = (quint8)0xDA,
+    BLE_SCREEN_PAL0_CMD = (quint8)0xD2,
+    BLE_SCREEN_PAL1_CMD = (quint8)0xD3,
+    BLE_SCREEN_PAL2_CMD = (quint8)0xE5
 };
 
 enum {
@@ -153,6 +156,7 @@ protected:
     void parseRecList(QDataStream& stream);
     void parseRecData(QDataStream& stream);
     void parseScreenShot(const QByteArray &arr);
+    void parseScreenPalette(const QByteArray &arr, quint8 cmd);
     bool checkCRC(const QByteArray& data);
     void returnCRC(const QByteArray& data);
     void setInnerScan(bool _state) { m_innerScan = _state; }

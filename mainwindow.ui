@@ -273,7 +273,7 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>100</height>
+          <height>120</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -286,6 +286,12 @@
          <string>Frequency, kHz</string>
         </property>
         <layout class="QFormLayout" name="formLayout">
+         <property name="sizeConstraint">
+          <enum>QLayout::SizeConstraint::SetMinimumSize</enum>
+         </property>
+         <property name="verticalSpacing">
+          <number>6</number>
+         </property>
          <property name="topMargin">
           <number>20</number>
          </property>
@@ -335,7 +341,7 @@
             <string/>
            </property>
            <property name="text">
-            <string>Center, range</string>
+            <string>Center / Range</string>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -597,6 +603,19 @@ process in the settings menu!</string>
          </item>
         </layout>
        </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Orientation::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <widget class="QGroupBox" name="groupBox_Presets">

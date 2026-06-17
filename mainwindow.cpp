@@ -4235,6 +4235,7 @@ void MainWindow::on_screenshotAA_clicked()
     m_screenshot->setWindowTitle("Screenshot");
 
     connect(m_analyzer,SIGNAL(analyzerScreenshotDataArrived(QByteArray)),m_screenshot,SLOT(on_newData(QByteArray)));
+    connect(m_analyzer,SIGNAL(analyzerScreenPaletteArrived(QByteArray, quint8)),m_screenshot,SLOT(on_fillPalette(QByteArray, quint8)));
     connect(m_screenshot,SIGNAL(screenshotComplete()),m_analyzer,SLOT(on_screenshotComplete()));
     connect(m_screenshot,SIGNAL(newScreenshot()),m_analyzer,SLOT(makeScreenshot()));
 
@@ -6830,8 +6831,6 @@ void MainWindow::closeSettingsDialog()
     //ui->checkBoxCalibration->setEnabled(m_calibration->isCalibrationPerformed());
     //ui->checkBoxCalibration->setChecked(m_calibration->getCalibrationEnabled());
     //------
-    int idx = ui->tabWidget->currentIndex();
-    ui->tabWidget->setCurrentIndex(idx == 0 ? 1 : 0);
     QTimer::singleShot(1, this, [this]() { on_tabWidget_currentChanged(ui->tabWidget->currentIndex()); });
 }
 

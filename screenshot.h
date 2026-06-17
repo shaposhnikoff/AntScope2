@@ -29,9 +29,11 @@ private:
     Ui::Screenshot *ui;
     int m_lcdHeight;
     int m_lcdWidth;
+    int m_obtainedStick_2=0;
     QVector <unsigned char> m_inputData;
     QVector <unsigned char> m_parsedData;
     QVector <QRgb> m_imageVector;
+    QVector <QRgb> m_palette;
 //    int m_screenCounter;
     QImage *m_image;
     QImage *m_imageToPdf;
@@ -45,9 +47,12 @@ private:
 
     void saveBMP(QString path);
     void savePDF(QString path, QString comment);
+    void fillPalette565(QByteArray data);
+    void fillPalette888(QByteArray data, quint8 cmd);
 
     //{ debug
     QVector <unsigned char> m_inputDataDebug;
+    bool m_emulate=false;
     //} debug
 
 signals:
@@ -65,6 +70,7 @@ private slots:
     void on_refreshBtn_clicked();
     void on_clipboardBtn_clicked();
     void on_errorTimerTick();
+    void on_fillPalette(QByteArray pal, quint8 cmd);
 };
 
 #endif // SCREENSHOT_H

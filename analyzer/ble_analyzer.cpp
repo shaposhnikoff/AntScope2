@@ -506,6 +506,22 @@ void BleAnalyzer::parseResponse(const QByteArray& arr)
         parseScreenShot(arr);
     }
     break;
+    case (quint8)BLE_SCREEN_PAL_CMD: {
+        parseScreenPalette(arr, BLE_SCREEN_PAL_CMD);
+    }
+    break;
+    case (quint8)BLE_SCREEN_PAL0_CMD: {
+        parseScreenPalette(arr, BLE_SCREEN_PAL0_CMD);
+    }
+    break;
+    case (quint8)BLE_SCREEN_PAL1_CMD: {
+        parseScreenPalette(arr, BLE_SCREEN_PAL1_CMD);
+    }
+    break;
+    case (quint8)BLE_SCREEN_PAL2_CMD: {
+        parseScreenPalette(arr, BLE_SCREEN_PAL2_CMD);
+    }
+    break;
     case (quint8)BLE_REC_LIST_CMD: {
         parseRecList(stream);
     }
@@ -620,6 +636,12 @@ void BleAnalyzer::parseScreenShot(const QByteArray &arr)
 {
     QByteArray ar = arr.mid(1, arr.length()-2);
     emit analyzerScreenshotDataArrived(ar);
+}
+
+void BleAnalyzer::parseScreenPalette(const QByteArray &arr, quint8 cmd)
+{
+    QByteArray ar = arr.mid(1, arr.length()-2);
+    emit analyzerScreenPaletteArrived(ar, cmd);
 }
 
 void BleAnalyzer::parseFullInfo(QDataStream& stream)

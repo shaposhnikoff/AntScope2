@@ -73,6 +73,7 @@ signals:
     void newMeasurement(QString);
     void analyzerDataStringArrived(QString);
     void analyzerScreenshotDataArrived(QByteArray);
+    void analyzerScreenPaletteArrived(QByteArray, quint8 cmd);
     void screenshotComplete(void);
     void updatePercentChanged(int number);
     void signalMeasurementError();
@@ -109,6 +110,7 @@ public slots:
     void on_itemDoubleClick(QString info); // idx,from,to,dots:name
 
     void on_analyzerScreenshotDataArrived(QByteArray arr);
+    void on_analyzerScreenPaletteArrived(QByteArray arr, quint8 cmd);
     void on_screenshotComplete(void);
     void makeScreenshot();
 

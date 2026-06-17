@@ -350,9 +350,9 @@ public:
         m_analyzers << new AnalyzerParameters(idx++, "AA-230 ZOOM", "100", "230000", 220, 290, PREFIX_SERIAL_NUMBER_AA230_ZOOM);
         m_analyzers << new AnalyzerParameters(idx++, "AA-230", "100", "230000", 0, 0);
         m_analyzers << new AnalyzerParameters(idx++, "Stick 230", "100", "230000", 200, 200, PREFIX_SERIAL_NUMBER_STICK_230);
-        m_analyzers << new AnalyzerParameters(idx++, "Stick 230", "100", "230000", 200, 200, PREFIX_SERIAL_NUMBER_STICK_230_2);
+        m_analyzers << new AnalyzerParameters(idx++, "Stick 230", "100", "230000", 232, 240, PREFIX_SERIAL_NUMBER_STICK_230_2);
         m_analyzers << new AnalyzerParameters(idx++, "Stick Pro", "100", "600000", 220, 220, PREFIX_SERIAL_NUMBER_STICK_PRO);
-        m_analyzers << new AnalyzerParameters(idx++, "Stick Pro", "100", "600000", 220, 220, PREFIX_SERIAL_NUMBER_STICK_PRO_2);
+        m_analyzers << new AnalyzerParameters(idx++, "Stick Pro", "100", "600000", 232, 240, PREFIX_SERIAL_NUMBER_STICK_PRO_2);
         m_analyzers << new AnalyzerParameters(idx++, "AA-500", "100", "500000", 0, 0);
         m_analyzers << new AnalyzerParameters(idx++, "AA-520", "100", "520000", 0, 0);
         m_analyzers << new AnalyzerParameters(idx++, "AA-600", "100", "600000", 240, 320);
@@ -371,9 +371,9 @@ public:
         m_analyzers << new AnalyzerParameters(idx++, "Touch E-Ink", "100", "1000000", 0, 0, PREFIX_SERIAL_NUMBER_TOUCH_EINK);
 
         m_analyzers << new AnalyzerParameters(idx++, "Stick XPro", "100", "1000000", 220, 220, PREFIX_SERIAL_NUMBER_STICK_XPRO);
-        m_analyzers << new AnalyzerParameters(idx++, "Stick XPro", "100", "1000000", 220, 220, PREFIX_SERIAL_NUMBER_STICK_XPRO_2);
+        m_analyzers << new AnalyzerParameters(idx++, "Stick XPro", "100", "1000000", 232, 240, PREFIX_SERIAL_NUMBER_STICK_XPRO_2);
         m_analyzers << new AnalyzerParameters(idx++, "Stick 500", "100", "500000", 200, 200, PREFIX_SERIAL_NUMBER_STICK_500);
-        m_analyzers << new AnalyzerParameters(idx++, "Stick 500", "100", "500000", 200, 200, PREFIX_SERIAL_NUMBER_STICK_500_2);
+        m_analyzers << new AnalyzerParameters(idx++, "Stick 500", "100", "500000", 232, 240, PREFIX_SERIAL_NUMBER_STICK_500_2);
         m_analyzers << new AnalyzerParameters(idx++, "WilsonPro CAA", "100", "1500000", 240, 320, PREFIX_SERIAL_NUMBER_WILSON_PRO);
         m_analyzers << new AnalyzerParameters(idx++, "AA-1500 ZOOM SE", "100", "1500000", 480, 746, PREFIX_SERIAL_NUMBER_AA1500SE, "AA-1500SE");
         m_analyzers << new AnalyzerParameters(idx++, "AA-1500 SE", "100", "1500000", 480, 746, PREFIX_SERIAL_NUMBER_AA1500SE);

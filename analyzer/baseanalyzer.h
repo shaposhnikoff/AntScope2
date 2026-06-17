@@ -48,6 +48,7 @@ signals:
     void newUserData(RawData, UserData);
     void analyzerDataStringArrived(QString);
     void analyzerScreenshotDataArrived(QByteArray);
+    void analyzerScreenPaletteArrived(QByteArray, quint8 cmd);
     void updatePercentChanged(int);
     void signalFullInfo(const QString& _info);
     void signalMeasurementError();

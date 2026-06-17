@@ -248,7 +248,7 @@ void AnalyzerPro::on_measure (qint64 fqFrom, qint64 fqTo, qint32 dotsNumber)
     {
         setIsMeasuring(true);
         QDateTime datetime = QDateTime::currentDateTime();
-        QString name = datetime.toString("##dd.MM.yyyy-hh:mm:ss");
+        QString name = datetime.toString("##hh:mm:ss dd.MM.yyyy");
         emit newMeasurement(name, fqFrom, fqTo, dotsNumber);
         m_dotsNumber = dotsNumber;
         m_chartCounter = 0;
@@ -505,6 +505,11 @@ void AnalyzerPro::on_analyzerScreenshotDataArrived(QByteArray arr)
     emit analyzerScreenshotDataArrived(arr);
 }
 
+void AnalyzerPro::on_analyzerScreenPaletteArrived(QByteArray arr, quint8 cmd)
+{
+    emit analyzerScreenPaletteArrived(arr, cmd);
+}
+
 void AnalyzerPro::on_screenshotComplete(void)
 {
     emit screenshotComplete();
@@ -696,6 +701,7 @@ void AnalyzerPro::connectSignals()
     connect(m_baseAnalyzer,&BaseAnalyzer::newUserDataHeader,this, &AnalyzerPro::on_newUserDataHeader);
     connect(m_baseAnalyzer, &BaseAnalyzer::analyzerDataStringArrived,this, &AnalyzerPro::on_analyzerDataStringArrived);
     connect(m_baseAnalyzer,&BaseAnalyzer::analyzerScreenshotDataArrived,this, &AnalyzerPro::on_analyzerScreenshotDataArrived);
+    connect(m_baseAnalyzer,&BaseAnalyzer::analyzerScreenPaletteArrived,this, &AnalyzerPro::on_analyzerScreenPaletteArrived);
     connect(this, &AnalyzerPro::screenshotComplete, m_baseAnalyzer, &BaseAnalyzer::on_screenshotComplete);
     connect(m_baseAnalyzer, &BaseAnalyzer::signalAnalyzerError, this, &AnalyzerPro::signalAnalyzerError);
     connect(m_baseAnalyzer, &BaseAnalyzer::completeMeasurement, this, [=](){
