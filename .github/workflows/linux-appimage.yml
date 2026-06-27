@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p AppDir/usr/bin
           mkdir -p AppDir/usr/share/applications
-          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+          mkdir -p AppDir/usr/share/icons/hicolor/64x64/apps
 
           cp build/release/AntScope2 AppDir/usr/bin/AntScope2
           cp cables.txt AppDir/usr/
@@ -68,7 +68,7 @@ jobs:
           cp itu-regions-defaults.txt AppDir/usr/
           cp QtLanguage_ja.qm AppDir/usr/
           cp QtLanguage_uk.qm AppDir/usr/
-          cp rig_logo.png AppDir/usr/share/icons/hicolor/256x256/apps/antscope2.png
+          cp AntScope2.png AppDir/usr/share/icons/hicolor/64x64/apps/antscope2.png
 
           cat > AppDir/usr/share/applications/antscope2.desktop <<'EOF'
           [Desktop Entry]
@@ -100,7 +100,7 @@ jobs:
             --appdir AppDir \
             --executable AppDir/usr/bin/AntScope2 \
             --desktop-file AppDir/usr/share/applications/antscope2.desktop \
-            --icon-file AppDir/usr/share/icons/hicolor/256x256/apps/antscope2.png \
+            --icon-file AppDir/usr/share/icons/hicolor/64x64/apps/antscope2.png \
             --plugin qt \
             --output appimage
 
