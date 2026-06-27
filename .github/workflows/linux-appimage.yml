@@ -16,9 +16,19 @@ permissions:
 
 jobs:
   appimage:
-    name: Build AppImage
-    runs-on: ubuntu-22.04
+    name: Build AppImage (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            fuse_package: libfuse2
+            serial_package: libqt6serialport6-dev
+          - os: ubuntu-24.04
+            fuse_package: libfuse2t64
+            serial_package: qt6-serialport-dev
 
     steps:
       - name: Check out repository
@@ -30,11 +40,12 @@ jobs:
           sudo apt-get install -y \
             build-essential \
             desktop-file-utils \
-            libfuse2 \
+            ${{ matrix.fuse_package }} \
+            libgl-dev \
             libusb-1.0-0-dev \
             patchelf \
             qmake6 \
-            libqt6serialport6-dev \
+            ${{ matrix.serial_package }} \
             qt6-base-dev \
             qt6-base-dev-tools \
             qt6-connectivity-dev \
@@ -98,12 +109,12 @@ jobs:
           test -n "$appimage"
           ref_name="${GITHUB_REF_NAME//\//-}"
           short_sha="${GITHUB_SHA::7}"
-          mv "$appimage" "dist/AntScope2-${ref_name}-${short_sha}-x86_64.AppImage"
+          mv "$appimage" "dist/AntScope2-${{ matrix.os }}-${ref_name}-${short_sha}-x86_64.AppImage"
 
       - name: Upload AppImage artifact
         uses: actions/upload-artifact@v4
         with:
-          name: AntScope2-AppImage
+          name: AntScope2-AppImage-${{ matrix.os }}
           path: dist/*.AppImage
           if-no-files-found: error
           retention-days: 14
