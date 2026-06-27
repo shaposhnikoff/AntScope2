@@ -267,6 +267,17 @@ unix:!macx {
     SOURCES += analyzer/usbhid/hidapi/linux/hid.c
     LIBS += -lusb-1.0
     DEFINES += _NO_WINDOWS_
+
+    LINUX_RUNTIME_FILES = \
+        $$PWD/cables.txt \
+        $$PWD/itu-regions.txt \
+        $$PWD/itu-regions-defaults.txt \
+        $$PWD/QtLanguage_ja.qm \
+        $$PWD/QtLanguage_uk.qm
+
+    for(runtime_file, LINUX_RUNTIME_FILES) {
+        QMAKE_POST_LINK += $$QMAKE_COPY $$shell_quote($$runtime_file) $$shell_quote($$DESTDIR/..) $$escape_expand(\\n\\t)
+    }
 }
 
 macx {
@@ -301,4 +312,3 @@ DISTFILES += \
 
 RESOURCES += \
     res.qrc
-

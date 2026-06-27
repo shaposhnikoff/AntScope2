@@ -31,3 +31,8 @@ release/
 debug/
 Images/
 PDFs/
+
+# qmake build artifacts
+/.qmake.stash
+/Makefile
+/build/
