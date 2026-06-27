@@ -34,10 +34,10 @@ jobs:
             libusb-1.0-0-dev \
             patchelf \
             qmake6 \
+            libqt6serialport6-dev \
             qt6-base-dev \
             qt6-base-dev-tools \
             qt6-connectivity-dev \
-            qt6-serialport-dev \
             qt6-tools-dev-tools
 
       - name: Build release binary
